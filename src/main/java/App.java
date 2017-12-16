@@ -29,18 +29,44 @@ public class App{
 
         post("/clients", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-
             ArrayList<Client> clients = request.session().attribute("clients");
             if(clients == null){
                 clients = new ArrayList<Client>();
                 request.session().attribute("clients", clients);
             }
-
             String name = request.queryParams("name");
             Client newClient = new Client(name);
             clients.add(newClient);
-            //request.session().attribute("client", newClient);
             model.put("template", "templates/success.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+
+        get("clients/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            model.put("template", "templates/client-form.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+
+        get("/clients", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            model.put("clients", Client.all());
+            model.put("template", "templates/clients.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+
+        post("/clients", (request,response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String name = request.queryParams("name");
+            Client newClient = new Client(name);
+            model.put("template", "templates/success.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+
+        get("/clients/:id", (request, response) -> {
+            HashMap<String, Object> model = new HashMap<String, Object>();
+            Client client = Client.find(Integer.parseInt(request.params(":id")));
+            model.put("client", client);
+            model.put("template", "templates/client.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
     }
