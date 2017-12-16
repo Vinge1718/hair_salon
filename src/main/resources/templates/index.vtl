@@ -1,21 +1,8 @@
 <div class="container">
+
     <h2>Hair Salon</h2>
-
-    #if($clients)
-        <ul>
-            #foreach ($client in $clients)
-                <li><p>$client.getName()</p></li>
-            #end
-        </ul>
-    #else
-        <p>No client!</p>
-    #end
-
-    <p>Add a new Client:</p>
-
-    <form action="/clients" method="post" form-style-2>
-      <label for="name"><scan>Client name</scan></label>
-      <input id="name" name="name" type="text" class=".input-field">
-      <button type="submit" class="btn btn-success">Add Client</button>
-    </form>
+    <br>
+    <a href="/clients/new">Add a New Client</a>
+    <br>
+    <a href="/clients">View all clients</a>
 </div>
