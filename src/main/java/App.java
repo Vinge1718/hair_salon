@@ -22,8 +22,25 @@ public class App{
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-
+            model.put("clients", request.session().attribute("clients"));
             model.put("template", "templates/index.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+
+        post("/clients", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+
+            ArrayList<Client> clients = request.session().attribute("clients");
+            if(clients == null){
+                clients = new ArrayList<Client>();
+                request.session().attribute("clients", clients);
+            }
+
+            String name = request.queryParams("name");
+            Client newClient = new Client(name);
+            clients.add(newClient);
+            //request.session().attribute("client", newClient);
+            model.put("template", "templates/success.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
     }
