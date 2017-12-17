@@ -1,0 +1,11 @@
+<div class="container">
+    <p>Get $stylist.getName() a new client:</p>
+
+    <form action="/clients" method="post" class="form-style-2">
+        <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
+
+        <label for="name"><scan>Client name</scan></label>
+        <input id="name" name="name" type="text" class=".input-field">
+        <button type="submit" class="btn btn-success">Add Client</button>
+    </form>
+</div>
