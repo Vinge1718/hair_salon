@@ -1,0 +1,13 @@
+<div class="container">
+    <h2>$stylist.getName()</h2>
+
+    <ul>
+        #foreach($client in $stylist.getClients())
+            <li>$client.getName()</li>
+        #end
+    </ul>
+
+    <a href="/stylists/$stylist.getId()/clients/new">Add a new Client</a>
+    <br>
+    <a href="/stylists">View all stylists</a>
+</div>
