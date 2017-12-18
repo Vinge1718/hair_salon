@@ -44,7 +44,18 @@
 - you can access the fully functioning app [here](https://github.com/Vinge1718/hair_salon).
 
 ## Database set-up
-* 
+Assumming you have  - [Java](http://www.oracle.com/technetwork/java/index.html) installed.
+                    - [PostgreSQL](link-here)
+                    - [Git](link)
+                    - [Gradle](link)
+* In the cloned parent directory Connect to psql and run:
+    - CREATE DATABASE hair_salon;
+* Leave the `psql` line and run the following command in the terminal (not psql):
+    - psql hair_salon < hair_salon.psql
+* Connect to psql again and connect to your new database `\c hair_salon`.
+    - run \dt to view your tables
+    
+
 
 ## Known Problems
 - ...
