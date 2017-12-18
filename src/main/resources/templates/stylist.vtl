@@ -1,13 +1,18 @@
 <div class="container">
-    <h2>$stylist.getName()</h2>
+    #if ($stylist)
+        <h2>$stylist.getName()</h2>
 
-    <ul>
-        #foreach($client in $stylist.getClients())
-            <li>$client.getName()</li>
-        #end
-    </ul>
-
-    <a href="/stylists/$stylist.getId()/clients/new">Add a new Client</a>
-    <br>
-    <a href="/stylists">View all stylists</a>
+        <ul>
+            #foreach($client in $stylist.getClients())
+                <li><a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</a></li>
+            #end
+        </ul>
+    #else
+        <em><p>Oops! We can't seem to find that Stylist.</p></em>
+    #end
+        <a href="/stylists/$stylist.getId()/clients/new">Add a new Client</a>
+        <br>
+        <a href="/stylists">View all stylists</a>
+        <br>
+        <a href="/">Home</a>
 </div>

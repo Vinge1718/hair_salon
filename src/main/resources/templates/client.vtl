@@ -1,8 +1,24 @@
 <div class="container">
     <h2>$client.getName()</h2>
     <h3>Service Completed?:  $client.isCompleted()</h3>
+    <h3>Belongs to: $stylist.getName() client list.</h3>
+    <hr>
 
-    <a href="/clients">View all Clients</a>
+    <h3>Edit a clients details:</h3>
+
+    <form action="/stylists/$client.getStylistId()/clients/$client.getId()" method="post" class="form-style-2">
+        <label for="name"><scan>Client name</scan></label>
+        <input id="name" name="name" type="text" class=".input-field">
+        <button type="submit" class="btn btn-success">Edit the Clients name</button>
+    </form>
+    <hr>
+
+    <form action="/stylists/$client.getStylistId()/clients/$client.getId()/delete" method="post" class="form-style-2">
+        <button type="submit" class="btn btn-danger" id="delete-client">Delete Clients name</button>
+    </form>
+
+    <a href="/stylists/$stylist.getId()">Return to $stylist.getName()</a>
     <br>
-    
+    <a href="/">Home</a>
+
 </div>
