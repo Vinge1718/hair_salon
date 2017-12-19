@@ -3,7 +3,7 @@ body{
   background-repeat: no-repeat;
   background-size:cover;
   height: 100%;
-  width: auto;
+  width: 100%;
 }
 hr{
     border: 0;
@@ -34,7 +34,7 @@ select   {
 }
 
 .container{
-    margin-top: 5%;
+    margin-top: 2%;
     background-color: inherit;
     padding: 10px 20px;
     opacity: 0.92;
