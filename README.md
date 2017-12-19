@@ -54,8 +54,8 @@ Assumming you have  - [Java](http://www.oracle.com/technetwork/java/index.html) 
     - psql hair_salon < hair_salon.psql
 * Connect to psql again and connect to your new database `\c hair_salon`.
     - run \dt to view your tables
-    
-
+* For testing purposes you have to create a test database using our development database as a template, like this:
+    `hair_salon=# CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;`
 
 ## Known Problems
 - ...
